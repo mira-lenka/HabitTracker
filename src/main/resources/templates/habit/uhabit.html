@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/styles/styles.css">
+    <title>Habits</title>
+</head>
+<body>
+<header th:replace="~{fragment/menu :: header}">
+
+</header>
+<div class="container">
+    <h2>
+        update habit
+    </h2>
+<form th:action="@{/habits/update/{id}(id=${habit.id})}" th:object="${habit}" method="post">
+
+    <div>
+        <label>name:</label>
+        <input type="text" th:field="*{name}" placeholder="Enter habit name"/>
+    </div>
+    <div>
+        <label>description:</label>
+        <input type="text" th:field="*{description}" placeholder="Enter habit description"/>
+    </div>
+    <div>
+        <label>choose a category:</label>
+        <select th:field="*{category}">
+            <option th:each="category : ${categories}" th:value="${category.id}" th:text="${category.name}"></option>
+        </select>
+    </div>
+    
+    <div>
+        <label>starting date:</label>
+        <input type="date" th:field="*{startingDate}" />
+    </div>
+    <div>
+        <label>active?</label>
+        <label>
+            <input type="radio" th:field="*{active}" value="true" /> Active
+        </label>
+        <label>
+            <input type="radio" th:field="*{active}" value="false" /> Nonactive
+        </label>
+    </div>
+    <div>
+        <button type="submit">update</button>
+    </div>
+</form>
+</div>
+</body>
+</html>

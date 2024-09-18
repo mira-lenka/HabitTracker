@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/styles/styles.css">
+    <title>Habits</title>
+
+</head>
+<body>
+<header th:fragment="header" class="menu">
+    <a th:href="@{/records/dailyrecords}"><button>daily</button></a>
+    <a th:href="@{/habits(sortField='id', sortDir=${reverseSortDir}, active=TRUE)}"><button>habits</button></a>
+    <a th:href="@{/habits/new}"><button>add habit</button></a>
+    <a th:href="@{/categories}"><button>categories</button></a>
+    <a th:href="@{/categories/new}"><button>add category</button></a>
+    <a th:href="@{/edit}"><button>edit user info</button></a>
+    <form th:action="@{/logout}" method="post">
+        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+        <button type="submit">log out</button>
+    </form>
+
+</header>
+</body>
+</html>

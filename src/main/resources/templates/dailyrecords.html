@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/styles/styles.css">
+    <title>Habits</title>
+</head>
+<body>
+<header th:replace="~{fragment/menu :: header}">
+
+</header>
+<div class="container">
+    <h2>
+        your daily list of habits
+    </h2>
+<table>
+    <thead>
+    <tr>
+        <th>name</th>
+        <th>category</th>
+        <th>completed today?</th>
+        <th>action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="record : ${recordList}" th:style="'background-color: ' + ${record.habit.category.color}">
+
+        <td th:text="${record.habit.name}"></td>
+        <td th:text="${record.habit.category.name}"></td>
+
+        <td th:switch="${record.completed}">
+            <p th:case="TRUE">&#10004;</p>
+            <p th:case="FALSE">&#10008;</p>
+        </td>
+        <td>
+
+            <form method="post" th:action="@{/records/new/{id}(id=${record.id})}">
+
+                <button type="submit">change</button>
+            </form>
+
+        </td>
+    </tr>
+    </tbody>
+</table>
+</div>
+</body>
+</html>

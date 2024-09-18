@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/styles/styles.css">
+    <title>Habits</title>
+</head>
+<body>
+<header th:replace="~{fragment/menu :: header}">
+</header>
+<div class="container">
+<h2 th:text="${habit.name}" th:style="'background-color: ' + ${habit.category.color}"></h2>
+<p th:text="${habit.description}"></p>
+
+<table>
+
+    <tr th:each="record : ${records}">
+
+        <td th:text="${record.dateOfRecord}"></td>
+<!--        <td th:text="${record.completed}"></td>-->
+        <td th:switch="${record.completed}">
+            <p th:case="TRUE">&#10004;</p>
+            <p th:case="FALSE">&#10008;</p>
+        </td>
+
+    </tr>
+
+</table>
+</div>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/styles/styles.css">
+    <title>Habits</title>
+</head>
+<body>
+<header th:replace="~{fragment/menu :: header}">
+
+</header>
+
+<div class = "container">
+    <h2>
+        update your info
+    </h2>
+    <form th:action="@{/update}" th:object="${user}" method="post">
+
+        <div>
+            <label>name:</label>
+            <input type="text" th:field="*{name}" placeholder="Enter name"/>
+        </div>
+        <div>
+            <label>username:</label>
+            <input type="text" th:field="*{username}" placeholder="Enter username"/>
+        </div>
+        <div>
+            <label>email:</label>
+            <input type="email" th:field="*{email}" placeholder="Enter email"/>
+        </div>
+        <div>
+            <label>new password:</label>
+            <input type="password" th:field="*{password}" placeholder="Enter new password"/>
+        </div>
+
+        <div>
+            <button type="submit">Update</button>
+        </div>
+    </form>
+
+</div>
+
+</body>
+</html>

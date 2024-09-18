@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/styles/styles.css">
+    <title>Habits</title>
+</head>
+<body>
+<header th:replace="~{fragment/menu :: header}">
+
+</header>
+<div class="container">
+<h2>
+    your categories
+</h2>
+    <div th:if="${errorMessage}" class="alert alert-danger" th:text="${errorMessage}"></div>
+<table>
+    <thead>
+    <tr>
+
+        <th>name</th>
+        <th>action</th>
+    </tr>
+    </thead>
+    <tbody class="cat">
+    <tr th:each="category : ${categoryList}" th:style="'background-color: ' + ${category.color}">
+
+        <td th:text="${category.name}"></td>
+        <td>
+            <a th:href="@{/categories/edit/{id}(id=${category.id})}"><button>edit</button></a>
+
+            <form th:action="@{categories/delete/{id}(id=${category.id})}" method="post"><button type="submit">delete</button></form>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</div>
+</body>
+</html>

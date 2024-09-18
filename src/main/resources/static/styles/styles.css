@@ -1,0 +1,130 @@
+table, th, td {
+    border: 1px solid;
+
+}
+
+table {
+    width: 90%;
+    border-collapse: collapse;
+    border: 1px solid;
+    margin: 20px auto;
+
+}
+
+th {
+    height: 70px;
+}
+
+td {
+    text-align: center;
+    height: 50px;
+    vertical-align: middle;
+
+}
+
+a {
+
+    color: #0F1035;
+}
+
+body {
+
+    background: #365486;
+}
+
+table button, table input[type="submit"] {
+    background-color:#DCF2F1;
+    border: none;
+    color: #0F1035;
+    display: inline-flex;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin: 2 auto;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    padding-left: 10%;
+    padding-right: 10%;
+    border-radius: 15px;
+    box-sizing: border-box;
+    white-space: pre;
+
+}
+
+
+
+
+
+input[type="submit"],
+button, .cat button, cat input[type="submit"] {
+    background-color:#DCF2F1;
+    border: none;
+    color: #0F1035;
+    display: inline-flex;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin: 0 auto;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    padding-left: 1%;
+    padding-right: 1%;
+    border-radius: 15px;
+    box-sizing: border-box;
+    white-space: pre;
+
+}
+
+
+
+input[type="submit"]:focus, button:focus {
+    background-color:#365486;
+}
+form > div {
+
+    padding: 10px;
+}
+
+h2 {
+
+    text-align: center;
+    border-radius: 15px;
+}
+
+.container {
+
+    background-color: #7FC7D9;
+    align-content: center;
+    border-radius: 20px;
+    border-width: 10px;
+    border-color: #DCF2F1;
+    margin: 20px auto;
+    padding: 20px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    width: 75%;
+    text-align: center;
+
+}
+
+.menu  {
+
+    background-color: #365486;
+    display: flex;
+    justify-content: center;
+
+}
+
+header button, header input[type="submit"] {
+
+    background-color:#7FC7D9;
+    border: none;
+    color: #0F1035;
+    display: inline;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin: 20px;
+
+    padding-top: 5%;
+    padding-bottom: 5%;
+    padding-left: 10%;
+    padding-right: 10%;
+    border-radius: 15px;
+    box-sizing: border-box;
+    white-space: pre;
+
+}

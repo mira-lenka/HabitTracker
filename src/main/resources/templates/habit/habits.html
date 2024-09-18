@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/styles/styles.css">
+    <title>Habits</title>
+</head>
+<body>
+<header th:replace="~{fragment/menu :: header}">
+
+</header>
+<div class="container">
+
+    <h2>
+        your habits
+    </h2>
+
+     <a th:href="@{/habits(sortField='id', sortDir=${reverseSortDir}, active=TRUE)}"><button>show only active habits</button></a>
+
+     <a th:href="@{/habits(sortField='id', sortDir=${reverseSortDir}, active=FALSE)}"><button>show only nonactive habits</button></a>
+
+     <a th:href="@{/habits(sortField='id', sortDir=${reverseSortDir})}"><button>show all habits</button></a>
+
+
+     <div th:if="${errorMessage}" class="alert alert-danger" th:text="${errorMessage}"></div>
+    <table>
+        <thead>
+        <tr>
+            <th><a th:href="@{/habits(sortField='name', sortDir=${reverseSortDir})}">name</a></th>
+            <th>description</th>
+            <th><a th:href="@{/habits(sortField='startingDate', sortDir=${reverseSortDir})}">starting date</a></th>
+            <th><a th:href="@{/habits(sortField='category', sortDir=${reverseSortDir})}">category</a></th>
+            <th>action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="habit : ${habitList}" th:style="'background-color: ' + ${habit.category.color}">
+
+
+
+            <td><a th:href="@{/records/{id}(id = ${habit.id})}" th:text="${habit.name}"></a></td>
+            <td th:text="${habit.description}"></td>
+            <td  th:text="${habit.startingDate}"></td>
+            <td th:text="${habit.category.name}"></td>
+            <td>
+                <a th:href="@{/habits/edit/{id}(id=${habit.id})}"><button>edit</button></a>
+                <form th:action="@{habits/delete/{id}(id=${habit.id})}" method="post"><button type="submit">delete</button></form>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+ </div>
+</body>
+</html>
